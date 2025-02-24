@@ -8,12 +8,12 @@ collection = client.create_collection("all-my-documents")
 # Add docs to the collection. Can also update and delete. Row-based API coming soon!
 collection.add(
     documents=[
-        "This is document1", 
-        "This is document2"
+        "doc1", 
+        "doc2"
     ], # we handle tokenization, embedding, and indexing automatically. You can skip that and add your own embeddings as well
     metadatas=[
-        {"source": "notion"}, 
-        {"source": "google-docs"}
+        {"source": "doc1.txt"}, 
+        {"source": "doc2.txt"}
     ], # filter on these!
     ids=["doc1", "doc2"], # unique for each doc
 )
@@ -25,3 +25,5 @@ results = collection.query(
     # where={"metadata_field": "is_equal_to_this"}, # optional filter
     # where_document={"$contains":"search_string"}  # optional filter
 )
+
+print(results)
